@@ -1,8 +1,16 @@
 import streamlit as st
 
-st.header('st.button')
+add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
+                                                            'CoPrimer Selection Algorithm'))
 
-if st.button('Say hello'):
-     st.write('Why hello there')
-else:
-     st.write('Goodbye')
+# Alignments
+if add_sidebar == 'Alignments':
+    st.write("Alignments with Viral MSA")
+
+# Entropy Visualization
+elif add_sidebar == 'Entropy Visualization':
+    st.write("Entropy Visualized")
+
+# CoPrimer Selection
+elif add_sidebar == 'CoPrimer Selection Algorithm':
+    st.write("CoPrimers Selected")
