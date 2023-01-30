@@ -15,8 +15,8 @@ import plotly.graph_objects as go
 
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
-from oligotools import reverse_complement as rc
-from oligotools import expand_ambiguous_dna as expand, coprimers_to_dataframe
+# from oligotools import reverse_complement as rc
+# from oligotools import expand_ambiguous_dna as expand, coprimers_to_dataframe
 from tqdm import tqdm
 
 
