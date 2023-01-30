@@ -7,7 +7,7 @@ import io
 
 import design_analysis_tools_master.primer_mismatch
 import codx_biotools_master.oligotools
-import codx_biotools_master.tools
+from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
