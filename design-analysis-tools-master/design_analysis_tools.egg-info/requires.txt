@@ -1,0 +1,10 @@
+pandas
+numpy
+biopython
+plotly
+tqdm
+Bio
+xlrd
+scipy
+ray
+Python-Levenshtein
