@@ -8,6 +8,7 @@ from Bio import AlignIO
 import io
 # from codx-biotools-master/codx-biotools-master import 
 import design_analysis_tools_master.primer_mismatch
+import codx_biotools_master.oligotools
 
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
