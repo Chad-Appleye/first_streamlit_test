@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-import bio
+# import bio
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
