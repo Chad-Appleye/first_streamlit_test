@@ -14,7 +14,7 @@ import itertools as itt
 from Bio import Seq, SeqIO, Entrez, SearchIO
 from Bio.Blast import NCBIWWW
 from Bio.SeqUtils import GC
-from tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
+# from tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 from itertools import groupby, product
 from copy import deepcopy
 from Bio.pairwise2 import align, format_alignment
