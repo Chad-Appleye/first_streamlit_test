@@ -31,6 +31,7 @@ if add_sidebar == 'Alignments':
     if alignment_file is not None and primer_file is not None:
       kwargs = mismatch_args(alignment_file,primer_file)
       visual = MismatchVisualization(**kwargs)
+      st.write("It might have worked")
         
     
 # Entropy Visualization
