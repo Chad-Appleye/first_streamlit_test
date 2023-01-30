@@ -1,12 +1,10 @@
 
-pip install git+https://github.com/Co-Diagnostics/design-analysis-tools.git
-
 import streamlit as st
 import pandas as pd
 import Bio
 from Bio import AlignIO
 import io
-# from codx-biotools-master/codx-biotools-master import 
+
 import design_analysis_tools_master.primer_mismatch
 import codx_biotools_master.oligotools
 
