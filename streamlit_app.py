@@ -28,7 +28,7 @@ if add_sidebar == 'Alignments':
       primer_seq = pd.read_csv(primer_file)
       st.write(primer_seq)
     
-    if alignment_file is not None AND primer_file is not None:
+    if alignment_file is not None and primer_file is not None:
       kwargs = mismatch_args(alignmen_file,primer_file)
       visual = MismatchVisualization(**kwargs)
         
