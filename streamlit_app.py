@@ -5,7 +5,7 @@ import Bio
 from Bio import AlignIO
 import io
 
-import design_analysis_tools_master.primer_mismatch
+import design_analysis_tools_master.primer_mismatch as pm
 import codx_biotools_master.oligotools
 from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 
@@ -29,8 +29,8 @@ if add_sidebar == 'Alignments':
       st.write(primer_seq)
     
     if alignment_file is not None and primer_file is not None:
-      kwargs = mismatch_args(alignment_file,primer_file)
-      visual = MismatchVisualization(**kwargs)
+      kwargs = pm.mismatch_args(alignment_file,primer_file)
+      visual = pm.MismatchVisualization(**kwargs)
       st.write("It might have worked")
         
     
