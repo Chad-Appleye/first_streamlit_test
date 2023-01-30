@@ -11,7 +11,18 @@ if add_sidebar == 'Alignments':
     st.write("Alignments with Viral MSA")
 
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
+    if alignment_file is not None:
+      byte_str = alignment_file.read()
+      text_obj = byte_str.decode('UTF-8')
+      alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
+      st.write(alignment)
+    
+    
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
+    if primer_file is not None:
+      primer_seq = pd.read_csv(primer_file)
+      st.write(primer_seq)
+    
     
     
 # Entropy Visualization
