@@ -4,15 +4,17 @@ import re
 import os
 import pickle
 
-
+# Removing these imports as they are causing problems. 
 # import Levenshtein
+# from oligotools import *
+
 import pandas as pd
 import numpy as np
 from pandas.core.algorithms import value_counts
 import plotly.graph_objects as go
 
 from Bio.SeqIO.FastaIO import SimpleFastaParser
-from oligotools import *
+
 from oligotools import reverse_complement as rc
 from oligotools import expand_ambiguous_dna as expand, coprimers_to_dataframe
 from tqdm import tqdm
