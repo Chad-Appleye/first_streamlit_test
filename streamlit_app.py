@@ -1,8 +1,7 @@
-# $ python -m pip install -r requirements.txt
-
 import streamlit as st
 import pandas as pd
-# import bio
+import Bio
+from Bio import AlignIO
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
