@@ -1,2 +1,5 @@
 Bio
 plotly
+openpyxl
+itertools
+random
