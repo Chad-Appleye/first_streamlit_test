@@ -29,7 +29,7 @@ if add_sidebar == 'Alignments':
       st.write(primer_seq)
     
     if alignment_file is not None and primer_file is not None:
-      kwargs = mismatch_args(alignmen_file,primer_file)
+      kwargs = mismatch_args(alignment_file,primer_file)
       visual = MismatchVisualization(**kwargs)
         
     
