@@ -22,14 +22,16 @@ if add_sidebar == 'Alignments':
       text_obj = byte_str.decode('UTF-8')
       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
       st.write(alignment)
-    
-    
+  
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
       primer_seq = pd.read_csv(primer_file)
       st.write(primer_seq)
     
-    
+    if alignment_file AND primer_file is not None:
+      kwargs = mismatch_args(alignmen_file,primer_file)
+      visual = MismatchVisualization(**kwargs)
+        
     
 # Entropy Visualization
 elif add_sidebar == 'Entropy Visualization':
