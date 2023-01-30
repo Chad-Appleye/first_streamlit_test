@@ -1,0 +1,52 @@
+.header{
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.dropDown{
+    width: 200px;
+}
+
+.reverseGroup, .view-selection{
+    padding-left: 5rem;
+}
+
+.histSVG{
+    padding-top: 2rem;
+}
+
+.histbar{
+    fill: rgb(117, 176, 231);
+    stroke: black;
+    stroke-width: 0.08pt;
+}
+
+.hovered{
+    fill: blue;
+}
+
+.tooltip{
+    height: 120px;
+    width: 260px;
+    top: 300px;
+    left: 43%;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    overflow-y: visible;
+    font-size: 12pt;
+
+    background: rgba(253, 253, 253, .9);
+    white-space: pre;
+    opacity: 1;
+
+}
+
+.axis-labels{
+    font-size: 16px;
+
+}
+
+.sequence-text{
+    visibility: hidden;
+}
