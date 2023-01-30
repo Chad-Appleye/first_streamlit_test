@@ -4,7 +4,7 @@ import Bio
 from Bio import AlignIO
 import io
 # from codx-biotools-master/codx-biotools-master import 
-from design-analysis-tools-master import primer_mismatch
+import design-analysis-tools-master.primer_mismatch
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
