@@ -18,10 +18,15 @@ if add_sidebar == 'Alignments':
 
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
-      byte_str = alignment_file.read()
-      text_obj = byte_str.decode('UTF-8')
-      alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
+      alignment = AlignIO.read(alignment_file, "fasta")
       st.write(alignment)
+    
+#     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
+#     if alignment_file is not None:
+#       byte_str = alignment_file.read()
+#       text_obj = byte_str.decode('UTF-8')
+#       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
+#       st.write(alignment)
   
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
