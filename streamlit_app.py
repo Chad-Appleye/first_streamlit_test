@@ -32,8 +32,6 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 #     idx += 1
 #   return name_ls, seq_ls
 
-def read_primer_file(primer_file):
-  df = ot.coprimers_to_dataframe
 
 ################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
