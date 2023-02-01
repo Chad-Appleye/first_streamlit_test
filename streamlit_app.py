@@ -6,7 +6,7 @@ from Bio import AlignIO
 import io
 
 import design_analysis_tools_master.primer_mismatch as pm
-import codx_biotools_master.oligotools
+import codx_biotools_master.oligotools as ot
 from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
@@ -32,6 +32,9 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 #     idx += 1
 #   return name_ls, seq_ls
 
+def read_primer_file(primer_file):
+  df = ot.coprimers_to_dataframe
+
 ################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
@@ -54,13 +57,17 @@ if add_sidebar == 'Alignments':
 #       st.write(name_list)
 #       st.write(seq_list)
       
-      
-      
-      
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
-      primer_seq = pd.read_csv(primer_file)
-      st.write(primer_seq)
+      raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
+      primer_seq = raw_primer_seq[['Target', 'Sequence','OligoName', 'Gap']]
+    st.write(raw_primer_seq)
+    st.write(primer_seq)
+      
+      
+      
+      
+      
     
     if alignment_file is not None and primer_file is not None:
       kwargs = pm.mismatch_args(alignment_file,primer_file)
