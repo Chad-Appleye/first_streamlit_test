@@ -17,7 +17,7 @@ def get_fasta_stats(alignment):
   for _, seq in SimpleFastaParser(alignment):
     num_records += 1
     record_len = len(seq)
-  return num_records, record_len
+    return num_records, record_len
 
 def parse_alignment(alignment):
   num_records, record_len = get_fasta_stats(alignment)
