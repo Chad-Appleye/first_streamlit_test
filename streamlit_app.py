@@ -8,6 +8,7 @@ import io
 import design_analysis_tools_master.primer_mismatch as pm
 import codx_biotools_master.oligotools
 from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
+from Bio.SeqIO.FastaIO import SimpleFastaParser
 
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
