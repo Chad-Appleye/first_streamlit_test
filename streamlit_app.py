@@ -63,14 +63,21 @@ if add_sidebar == 'Alignments':
         raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
       
       
-      fwd_primer_seq, rev_primer_seq = ot.split_forwards_reverses(raw_primer_seq)
-      st.write(fwd_primer_seq)
-      st.write(rev_primer_seq)
-      primer_seq = raw_primer_seq[['Target', 'Sequence','OligoName', 'Gap']]
-      st.write(raw_primer_seq)
-      st.write(primer_seq)
+      forwards, reverses = ot.split_forwards_reverses(raw_primer_seq)
+      st.write(forwards)
+      st.write(reverses)
 
-      
+      kwargs = {
+        'alignment_path': alignment_path,
+        'forward_primer_sequences': forwards.Sequence.tolist(),
+        'reverse_primer_sequences': reverses.Sequence.tolist(), 
+        'forward_primer_names': forwards.OligoName.tolist(), 
+        'reverse_primer_names': reverses.OligoName.tolist(),
+        'forward_gap_lengths': forwards.Gap.tolist(),
+        'reverse_gap_lengths': reverses.Gap.tolist(), 
+        'pseudo_genome': pseudo_genome
+    }
+      st.write(kwargs)
       
       
       
