@@ -63,23 +63,21 @@ if add_sidebar == 'Alignments':
         raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
       
       
+      # Wanting to use clean_sequence and linearize the coprimers, and add the linearized sequence to the raw_primer_seq df. 
+      for row in raw_primer_seq:
+        raw_primer_seq['Sequence'][row]
+        
+        raw_primer_seq['Gap'][row]
+      
       forwards, reverses = ot.split_forwards_reverses(raw_primer_seq)
       forwards = forwards[['OligoName', 'Sequence', 'Gap']].copy
       reverses = reverses[['OligoName', 'Sequence', 'Gap']].copy
+      
+      
       st.write(forwards)
       st.write(reverses)
 
-      kwargs = {
-#         'alignment_path': alignment_path,
-        'forward_primer_sequences': forwards.Sequence.tolist(),
-        'reverse_primer_sequences': reverses.Sequence.tolist(), 
-        'forward_primer_names': forwards.OligoName.tolist(), 
-        'reverse_primer_names': reverses.OligoName.tolist(),
-        'forward_gap_lengths': forwards.Gap.tolist(),
-        'reverse_gap_lengths': reverses.Gap.tolist(), 
-#         'pseudo_genome': pseudo_genome
-    }
-      st.write(kwargs)
+
       
       
       
