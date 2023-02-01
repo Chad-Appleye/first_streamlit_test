@@ -61,9 +61,9 @@ if add_sidebar == 'Alignments':
     if primer_file is not None:
       raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
       primer_seq = raw_primer_seq[['Target', 'Sequence','OligoName', 'Gap']]
-    st.write(raw_primer_seq)
-    st.write(primer_seq)
-      
+      st.write(raw_primer_seq)
+      st.write(primer_seq)
+
       
       
       
