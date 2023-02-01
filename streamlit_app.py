@@ -12,25 +12,25 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 
 # ************Functions**************
 
-def get_fasta_stats(alignment):
-  num_records = 0
-  for _, seq in SimpleFastaParser(alignment):
-    num_records += 1
-    record_len = len(seq)
-    return num_records, record_len
+# def get_fasta_stats(alignment):
+#   num_records = 0
+#   for _, seq in SimpleFastaParser(alignment):
+#     num_records += 1
+#     record_len = len(seq)
+#     return num_records, record_len
 
-def parse_alignment(alignment):
-  num_records, record_len = get_fasta_stats(alignment)
-  seq_array = np.empty((num_records, record_len), dtype=str)
+# def parse_alignment(alignment):
+#   num_records, record_len = get_fasta_stats(alignment)
+#   seq_array = np.empty((num_records, record_len), dtype=str)
   
-  name_ls = []
-  seq_ls = []
-  idx = 0
-  for name, seq in SimpleFastaParser(alignment):
-    name_ls.append(name)
-    seq_ls.append(seq)
-    idx += 1
-  return name_ls, seq_ls
+#   name_ls = []
+#   seq_ls = []
+#   idx = 0
+#   for name, seq in SimpleFastaParser(alignment):
+#     name_ls.append(name)
+#     seq_ls.append(seq)
+#     idx += 1
+#   return name_ls, seq_ls
 
 ################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
@@ -45,9 +45,14 @@ if add_sidebar == 'Alignments':
       byte_str = alignment_file.read()
       text_obj = byte_str.decode('UTF-8')
       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
-      name_list, seq_list = parse_alignment(alignment)
-      st.write(name_list)
-      st.write(seq_list)
+      
+      st.write(type(alignment))
+      for item in alignment:
+        st.write(item)
+        
+#       name_list, seq_list = parse_alignment(alignment)
+#       st.write(name_list)
+#       st.write(seq_list)
       
       
       
