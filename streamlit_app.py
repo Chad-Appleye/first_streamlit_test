@@ -10,7 +10,7 @@ import codx_biotools_master.oligotools
 from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
-************Functions**************
+# ************Functions**************
 
 def get_fasta_stats(alignment):
   num_records = 0
@@ -32,16 +32,7 @@ def parse_alignment(alignment):
     idx += 1
   return name_ls, seq_ls
 
-
-
-
-
-
-
-
-
-
-
+################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
 
