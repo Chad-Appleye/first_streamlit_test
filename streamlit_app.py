@@ -20,13 +20,13 @@ def get_fasta_stats(alignment):
   return num_records, record_len
 
 def parse_alignment(alignment):
-  num_records, record_len = get_fasta_stats(alignement)
+  num_records, record_len = get_fasta_stats(alignment)
   seq_array = np.empty((num_records, record_len), dtype=str)
   
   name_ls = []
   seq_ls = []
   idx = 0
-  for name, seq in SimpleFastaParser(alignement)
+  for name, seq in SimpleFastaParser(alignment)
     name_ls.append(name)
     seq_ls.append(seq)
     idx += 1
