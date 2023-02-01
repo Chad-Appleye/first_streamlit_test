@@ -64,8 +64,8 @@ if add_sidebar == 'Alignments':
       
       
       forwards, reverses = ot.split_forwards_reverses(raw_primer_seq)
-      forwards = forwards_raw[['OligoName', 'Sequence', 'Gap']].copy
-      reverses = reverses_raw[['OligoName', 'Sequence', 'Gap']].copy
+      forwards = forwards[['OligoName', 'Sequence', 'Gap']].copy
+      reverses = reverses[['OligoName', 'Sequence', 'Gap']].copy
       st.write(forwards)
       st.write(reverses)
 
