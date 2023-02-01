@@ -57,9 +57,9 @@ if add_sidebar == 'Alignments':
       
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
-      if primer_file.endswith('.csv') or primer_file.endswith('.txt'):
+      if primer_file.name.endswith('.csv') or primer_file.endswith('.txt'):
         raw_primer_seq = pd.read_csv(primer_file)
-      if primer_file.endswith('.xlsx'):
+      if primer_file.name.endswith('.xlsx'):
         raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
       
       primer_seq = raw_primer_seq[['Target', 'Sequence','OligoName', 'Gap']]
