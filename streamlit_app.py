@@ -10,6 +10,38 @@ import codx_biotools_master.oligotools
 from codx_biotools_master.tools import replace_all, slidingWindow, remove_dir, get_sheet_names, rand_subset, parent_dir, flatten
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
+************Functions**************
+
+def get_fasta_stats(alignment):
+  num_records = 0
+  for _, seq in SimpleFastaParser(alignment):
+    num_records += 1
+  record_len = len(seq)
+  return num_records, record_len
+
+def parse_alignment(alignment):
+  num_records, record_len = get_fasta_stats(alignement)
+  seq_array = np.empty((num_records, record_len), dtype=str)
+  
+  name_ls = []
+  seq_ls = []
+  idx = 0
+  for name, seq in SimpleFastaParser(alignement)
+    name_ls.append(name)
+    seq_ls.append(seq)
+    idx += 1
+  return name_ls, seq_ls
+
+
+
+
+
+
+
+
+
+
+
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
 
@@ -22,9 +54,9 @@ if add_sidebar == 'Alignments':
       byte_str = alignment_file.read()
       text_obj = byte_str.decode('UTF-8')
       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
-      parsed_align = SimpleFastaParser(alignment_file)
-      st.write(parsed_align)
-
+      name_list, seq_list = parse_alignment(alignment)
+      st.write(name_list)
+      st.write(seq_list)
       
       
       
