@@ -22,10 +22,9 @@ if add_sidebar == 'Alignments':
       byte_str = alignment_file.read()
       text_obj = byte_str.decode('UTF-8')
       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
-#       st.write(alignment)
-      for values in SimpleFastaParser(alignment):
-        print(values)
-        st.write(values)
+      parsed_align = SimpleFastaParser(alignment_file)
+      st.write(parsed_align)
+
       
       
       
