@@ -26,7 +26,7 @@ def parse_alignment(alignment):
   name_ls = []
   seq_ls = []
   idx = 0
-  for name, seq in SimpleFastaParser(alignment)
+  for name, seq in SimpleFastaParser(alignment):
     name_ls.append(name)
     seq_ls.append(seq)
     idx += 1
