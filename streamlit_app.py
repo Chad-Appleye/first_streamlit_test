@@ -18,6 +18,7 @@ if add_sidebar == 'Alignments':
 
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
+      st.write(type(alignment_file)
       alignment = AlignIO.read(alignment_file, "fasta")
       st.write(alignment)
     
