@@ -15,21 +15,20 @@ add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entro
 # Alignments
 if add_sidebar == 'Alignments':
     st.write("Alignments with Viral MSA")
-
+    
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
-      st.write(type(alignment_file))
-      st.write(alignment_file)
-#       alignment = AlignIO.read(alignment_file, "fasta")
-#       st.write(alignment)
-    
-#     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
-#     if alignment_file is not None:
-#       byte_str = alignment_file.read()
-#       text_obj = byte_str.decode('UTF-8')
-#       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
-#       st.write(alignment)
-  
+      byte_str = alignment_file.read()
+      text_obj = byte_str.decode('UTF-8')
+      alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
+      st.write(alignment)
+      for values in SimpleFastaParser(alignment):
+        print(values)
+        st.write(values)
+      
+      
+      
+      
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
       primer_seq = pd.read_csv(primer_file)
