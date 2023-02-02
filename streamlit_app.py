@@ -33,6 +33,40 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 #   return name_ls, seq_ls
 
 
+
+###### Working on creating the Pseudo genome. Trying to figure out if I need to use any of the biopython tools
+
+def pseudo_genome(alignment):
+    # convert alignment to numpy array
+    num_records, record_len =  
+    
+    
+    
+    with open(self.alignment_path) as f:
+        self.num_records, self.record_len = self._get_fasta_stats(f)
+        print(f'Calculating mismatches for {self.num_records} records of length {self.record_len}')
+
+
+    with open(self.alignment_path) as f:
+        print('\nanalyzing sequences...')
+        name_ls = []
+        self.seq_array = np.empty((self.num_records, self.record_len), dtype=str)
+        idx = 0
+        for name, seq in tqdm(SimpleFastaParser(f), total=self.num_records):
+            name_ls.append(name)
+            self.seq_array[idx, :] = list(find_insertion_deletion(seq))
+            idx += 1
+
+    pseudo_genome = []
+    print('\nanalyzing genome..') 
+    for i in tqdm(np.arange(self.record_len)):
+        pseudo_genome.append(self._common_base([el for el in self.seq_array[:, i] if el in ['A', 'T', 'G', 'C']]))
+
+    pseudo_genome = ''.join(pseudo_genome)
+
+    return pseudo_genome
+
+
 ################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
@@ -50,11 +84,17 @@ if add_sidebar == 'Alignments':
       st.write(type(alignment))
       for item in alignment:
         st.write(item)
-        
-#       name_list, seq_list = parse_alignment(alignment)
-#       st.write(name_list)
-#       st.write(seq_list)
+       
       
+      name_list, seq_list = parse_alignment(alignment)
+      st.write(name_list)
+      st.write(seq_list)
+      
+      
+      
+      
+      
+# Primers
     primer_file = st.file_uploader(label='CoPrimer/Primer File', help="Upload a CoPrimer prediction file")
     if primer_file is not None:
       if primer_file.name.endswith('.csv') or primer_file.name.endswith('.txt'):
@@ -62,8 +102,6 @@ if add_sidebar == 'Alignments':
       if primer_file.name.endswith('.xlsx'):
         raw_primer_seq = pd.read_excel(primer_file, engine='openpyxl')
       
-      
-      # Wanting to use clean_sequence and linearize the coprimers, and add the linearized sequence to the raw_primer_seq df. 
       lin_coprimer_list = []
       
       for index, row in raw_primer_seq.iterrows():
