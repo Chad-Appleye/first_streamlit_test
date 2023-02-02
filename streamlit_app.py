@@ -64,7 +64,7 @@ if add_sidebar == 'Alignments':
       
       
       # Wanting to use clean_sequence and linearize the coprimers, and add the linearized sequence to the raw_primer_seq df. 
-      for index, row in raw_primer_seq:
+      for index, row in raw_primer_seq.iterrows():
         coprimer = ot.clean_sequence(row['Sequence'])
         gap = row['Gap']
         lin_coprimer = ot.linearize_coprimer(coprimer, gap)
