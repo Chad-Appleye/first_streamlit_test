@@ -64,10 +64,11 @@ if add_sidebar == 'Alignments':
       
       
       # Wanting to use clean_sequence and linearize the coprimers, and add the linearized sequence to the raw_primer_seq df. 
-      for row in raw_primer_seq:
-        raw_primer_seq['Sequence'][row]
+      for index, row in raw_primer_seq:
+        coprimer = ot.clean_sequence(row['Sequence'])
+        gap = row['Gap']
+        lin_coprimer = ot.linearize_coprimer(coprimer, gap)
         
-        raw_primer_seq['Gap'][row]
       
       forwards, reverses = ot.split_forwards_reverses(raw_primer_seq)
       forwards = forwards[['OligoName', 'Sequence', 'Gap']].copy
