@@ -74,8 +74,8 @@ if add_sidebar == 'Alignments':
       raw_primer_seq['LinearizedSeq'] = lin_coprimer_list
       
       forwards, reverses = ot.split_forwards_reverses(raw_primer_seq)
-      forwards = forwards[['OligoName', 'Sequence', 'Gap','LinearizedSeq']].copy
-      reverses = reverses[['OligoName', 'Sequence', 'Gap','LinearizedSeq']].copy
+      forwards = forwards[['OligoName', 'Sequence', 'Gap','LinearizedSeq']].copy(deep = True)
+      reverses = reverses[['OligoName', 'Sequence', 'Gap','LinearizedSeq']].copy(deep = True)
       
       
       st.write(forwards)
