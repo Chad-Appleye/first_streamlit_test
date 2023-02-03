@@ -36,35 +36,35 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 
 ###### Working on creating the Pseudo genome. Trying to figure out if I need to use any of the biopython tools
 
-def pseudo_genome(alignment):
-    # convert alignment to numpy array
-    num_records, record_len =  
+# def pseudo_genome(alignment):
+#     # convert alignment to numpy array
+#     num_records, record_len =  pm._get_fasta_stats
     
     
     
-    with open(self.alignment_path) as f:
-        self.num_records, self.record_len = self._get_fasta_stats(f)
-        print(f'Calculating mismatches for {self.num_records} records of length {self.record_len}')
+#     with open(self.alignment_path) as f:
+#         self.num_records, self.record_len = self._get_fasta_stats(f)
+#         print(f'Calculating mismatches for {self.num_records} records of length {self.record_len}')
 
 
-    with open(self.alignment_path) as f:
-        print('\nanalyzing sequences...')
-        name_ls = []
-        self.seq_array = np.empty((self.num_records, self.record_len), dtype=str)
-        idx = 0
-        for name, seq in tqdm(SimpleFastaParser(f), total=self.num_records):
-            name_ls.append(name)
-            self.seq_array[idx, :] = list(find_insertion_deletion(seq))
-            idx += 1
+#     with open(self.alignment_path) as f:
+#         print('\nanalyzing sequences...')
+#         name_ls = []
+#         self.seq_array = np.empty((self.num_records, self.record_len), dtype=str)
+#         idx = 0
+#         for name, seq in tqdm(SimpleFastaParser(f), total=self.num_records):
+#             name_ls.append(name)
+#             self.seq_array[idx, :] = list(find_insertion_deletion(seq))
+#             idx += 1
 
-    pseudo_genome = []
-    print('\nanalyzing genome..') 
-    for i in tqdm(np.arange(self.record_len)):
-        pseudo_genome.append(self._common_base([el for el in self.seq_array[:, i] if el in ['A', 'T', 'G', 'C']]))
+#     pseudo_genome = []
+#     print('\nanalyzing genome..') 
+#     for i in tqdm(np.arange(self.record_len)):
+#         pseudo_genome.append(self._common_base([el for el in self.seq_array[:, i] if el in ['A', 'T', 'G', 'C']]))
 
-    pseudo_genome = ''.join(pseudo_genome)
+#     pseudo_genome = ''.join(pseudo_genome)
 
-    return pseudo_genome
+#     return pseudo_genome
 
 
 ################ Building App/GUI Elements ###############################
