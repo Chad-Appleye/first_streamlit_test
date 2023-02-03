@@ -32,34 +32,6 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 #     idx += 1
 #   return name_ls, seq_ls
 
-def fasta_iter(fasta_name):
-  """
-  modified from Brent Pedersen
-  Correct Way To Parse A Fasta File In Python
-  given a fasta file. yield tuples of header, sequence
-  """
-  "first open the file outside "
-  # fh = open(fasta_name)
-
-  # ditch the boolean (x[0]) and just keep the header or sequence since
-  # we know they alternate.
-  faiter = (x[1] for x in groupby(fasta_name, lambda line: line[0] == ">"))
-
-  for header in faiter:
-      # drop the ">"
-      headerStr = header.__next__()[1:].strip()
-
-      # join all sequence lines to one.
-      seq = "".join(s.strip() for s in faiter.__next__())
-
-      yield (headerStr, seq)
-
-  fiter = fasta_iter('testset.fas')
-
-  for ff in fiter:
-      headerStr, seq = ff
-      print(headerStr)
-
 
 ###### Working on creating the Pseudo genome. Trying to figure out if I need to use any of the biopython tools
 
@@ -104,6 +76,8 @@ if add_sidebar == 'Alignments':
     
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
+      alignment_df = pd.read_table(alignment_file)
+      
       byte_str = alignment_file.read()
       text_obj = byte_str.decode('UTF-8')
       st.write(type(text_obj))
@@ -114,7 +88,7 @@ if add_sidebar == 'Alignments':
 #         st.write(item)
        
       
-      name_list, seq_list = fasta_iter(text_obj)
+      name_list, seq_list = SimpleFastaParser(alignment_file)
       st.write(name_list)
       st.write(seq_list)
       
