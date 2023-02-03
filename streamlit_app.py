@@ -106,6 +106,7 @@ if add_sidebar == 'Alignments':
     if alignment_file is not None:
       byte_str = alignment_file.read()
       text_obj = byte_str.decode('UTF-8')
+      st.write(type(text_obj))
 #       alignment = AlignIO.read(io.StringIO(text_obj),"fasta")
       
 #       st.write(type(alignment))
