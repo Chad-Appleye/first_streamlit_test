@@ -56,8 +56,8 @@ if add_sidebar == 'Alignments':
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
         alignment = pd.read_table(alignment_file, header=None)
-        st.write(alignment.iloc[::2])
-        st.write(alignment.iloc[1::2])
+        st.write(alignment)
+#         st.write(alignment.iloc[1::2])
         
 #       alignment_df = pd.DataFrame([[alignment.iloc[::2]],[alignment.iloc[1::2]]],columns=['Name', 'Sequence'])
 #       st.write(alignment_df)
