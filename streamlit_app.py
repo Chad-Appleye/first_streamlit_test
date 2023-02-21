@@ -56,6 +56,8 @@ if add_sidebar == 'Alignments':
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
         alignment = pd.read_table(alignment_file, header=None)
+        idxs = list(range(len(alignment)+1,2))
+        st.write(idxs)
         sequences = alignment.pop(list(range(len(alignment)+1,2)))
         
 #         name_list = alignment.iloc[::2].values.tolist
