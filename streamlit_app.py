@@ -57,8 +57,7 @@ if add_sidebar == 'Alignments':
     if alignment_file is not None:
         alignment = pd.read_table(alignment_file, header=None)
         idxs = list(range(0, len(alignment)+1,2))
-        st.write(idxs)
-        sequences = alignment.pop(list(range(len(alignment)+1,2)))
+        sequences = alignment.pop(idxs)
         
 #         name_list = alignment.iloc[::2].values.tolist
 #         st.write(name_list)
