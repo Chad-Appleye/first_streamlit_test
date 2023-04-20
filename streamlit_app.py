@@ -52,13 +52,23 @@ add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entro
 # Alignments
 if add_sidebar == 'Alignments':
     st.write("Alignments with Viral MSA")
-    
+ 
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
-        alignment = pd.read_table(alignment_file, header=None)
-        alignment_df = pd.DataFrame({'Name': alignment.iloc[::2][0].values, 'Sequence': alignment.iloc[1::2][0].values})
-        st.write(alignment_df)
+#         alignment = pd.read_table(alignment_file, header=None)
+#         alignment_df = pd.DataFrame({'Name': alignment.iloc[::2][0].values, 'Sequence': alignment.iloc[1::2][0].values})
+#         st.write(alignment_df)
         
+        file = alignment_file.read()
+        align_file = open(alignment_file.name, 'wb')
+        align_file.write(file)
+        align_file.close()
+        path = './up_align_file'
+        drive.put('up_align_file', path=path)
+        st.success('Thanks for uploading!')
+        
+        
+       
         
         
         
