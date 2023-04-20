@@ -1,4 +1,5 @@
 import streamlit as st
+from deta import Deta
 import pandas as pd
 import Bio
 from Bio import AlignIO
@@ -48,6 +49,8 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 ################ Building App/GUI Elements ###############################
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
+
+drive = deta.Drive("drive_name")
 
 # Alignments
 if add_sidebar == 'Alignments':
