@@ -56,7 +56,7 @@ if add_sidebar == 'Alignments':
     alignment_file = st.file_uploader(label='Alignment File', help="Upload a FASTA alignment file")
     if alignment_file is not None:
         alignment_path = alignment_file.name
-        st.write(alignment_path)
+        st.write("Path: "+alignment_path)
         
         alignment = pd.read_table(alignment_file, header=None)
 #         idxs = list(range(0, len(alignment)+1,2))
