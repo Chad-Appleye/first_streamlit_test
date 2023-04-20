@@ -67,7 +67,7 @@ if add_sidebar == 'Alignments':
 #         alignment_df = pd.DataFrame([alignment,sequences],columns=['Name', 'Sequence'])
          
         alignment_df = pd.DataFrame({'Name': alignment.iloc[::2][0].values, 'Sequence': alignment.iloc[1::2][0].values})
-         
+        st.write(request.FILES['alignment_file'])
         st.write(alignment_df)
         
     
