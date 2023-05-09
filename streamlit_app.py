@@ -50,7 +50,7 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 add_sidebar = st.sidebar.selectbox('Bioinformatics Tools', ('Alignments', 'Entropy Visualization',
                                                             'CoPrimer Selection Algorithm'))
 
-drive = deta.Drive("drive_name")
+# drive = deta.Drive("drive_name")
 
 # Alignments
 if add_sidebar == 'Alignments':
@@ -62,13 +62,13 @@ if add_sidebar == 'Alignments':
 #         alignment_df = pd.DataFrame({'Name': alignment.iloc[::2][0].values, 'Sequence': alignment.iloc[1::2][0].values})
 #         st.write(alignment_df)
         
-        file = alignment_file.read()
-        align_file = open(alignment_file.name, 'wb')
-        align_file.write(file)
-        align_file.close()
-        path = './up_align_file'
-        drive.put('up_align_file', path=path)
-        st.success('Thanks for uploading!')
+#         file = alignment_file.read()
+#         align_file = open(alignment_file.name, 'wb')
+#         align_file.write(file)
+#         align_file.close()
+#         path = './up_align_file'
+#         drive.put('up_align_file', path=path)
+#         st.success('Thanks for uploading!')
         
         
        
